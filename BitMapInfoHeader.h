@@ -2,7 +2,7 @@
 #define BITMAPINFOHEADER_H
 #include <cstdint>
 using namespace std;
-//#pragma pack(2)
+#pragma pack(2)
 namespace JosepBoncompte
 {
     struct BitMapInfoHeader
