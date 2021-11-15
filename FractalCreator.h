@@ -27,12 +27,16 @@ namespace JosepBoncompte
 
         vector<int> m_ranges;
         vector<RGB> m_colors;
+        vector<int> m_rangeTotals;
+        bool m_bGotFirstRange{false};
 
     private:
         void calculateIteration();
         void calculateTotalIter();
+        void calculateRangeTotals();
         void drawFractal();
         void writeBitMap(string name);
+        int getRange(int iterations) const;
 
     public:
         FractalCreator(int w, int h);
