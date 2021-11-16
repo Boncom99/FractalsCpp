@@ -9,11 +9,11 @@ namespace JosepBoncompte
     class Mandelbrot
     {
     public:
-        static const int MAX_ITERATIONS = 1000;
+        static const int MAX_ITERATIONS = 10000;
 
     public:
         Mandelbrot();
-        static int getIterations(double x, double y);
+        static int getIterations(double x, double y, double scale);
         ~Mandelbrot();
     };
 } // namespace JosepBoncompte

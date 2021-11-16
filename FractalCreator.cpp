@@ -47,19 +47,20 @@ namespace JosepBoncompte
                                                    m_bitmap(m_width, m_height),
                                                    m_zoomList(m_width, m_height)
     {
-        m_zoomList.add(Zoom(m_width / 2, m_height / 2, 4.0 / m_width));
+        m_zoomList.add(Zoom(m_width / 2, m_height / 2, 4.0 / m_width, 1));
     }
 
     void FractalCreator::calculateIteration()
     {
+        double percentage = (m_zoomList.zooms.back()).percentage;
         for (int y = 0; y < m_height; y++)
         {
             for (int x = 0; x < m_width; x++)
             {
                 pair<double, double> coords = m_zoomList.doZoom(x, y);
-                int iterations = Mandelbrot::getIterations(coords.first, coords.second);
+                int iterations = Mandelbrot::getIterations(coords.first, coords.second, percentage);
                 m_fractal[y * m_width + x] = iterations;
-                if (iterations != Mandelbrot::MAX_ITERATIONS)
+                if (iterations != Mandelbrot::MAX_ITERATIONS * percentage)
                 {
                     m_histogram[iterations]++;
                 }
@@ -90,6 +91,7 @@ namespace JosepBoncompte
     }
     void FractalCreator::drawFractal()
     {
+        double percentage = (m_zoomList.zooms.back()).percentage;
         for (int y = 0; y < m_height; y++)
         {
             for (int x = 0; x < m_width; x++)
@@ -106,7 +108,7 @@ namespace JosepBoncompte
                 uint8_t green = 0;
                 uint8_t blue = 0;
 
-                if (iterations != Mandelbrot::MAX_ITERATIONS)
+                if (iterations != Mandelbrot::MAX_ITERATIONS * percentage)
                 {
                     int TotalPixels = 0;
                     for (int i = rangeStart; i <= iterations; i++)
