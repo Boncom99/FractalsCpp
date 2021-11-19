@@ -2,11 +2,11 @@
 #define ZOOM_H
 struct Zoom
 {
-    int x{0};
-    int y{0};
+    long double x{0};
+    long double y{0};
     double scale{0.0};
     double percentage{0.1};
-    Zoom(int x, int y, double scale, double percentage);
+    Zoom(long double x, long double y, double scale, double percentage);
     ~Zoom();
 };
 

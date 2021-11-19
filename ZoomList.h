@@ -12,15 +12,15 @@ public:
     vector<Zoom> zooms;
 
 private:
-    double m_xCenter{0};
-    double m_yCenter{0};
+    long double m_xCenter{0};
+    long double m_yCenter{0};
     int m_width{0};
     int m_height{0};
 
 public:
     ZoomList(int w, int h);
     void add(const Zoom &z);
-    pair<double, double> doZoom(int x, int y);
+    pair<long double, long double> doZoom(long double x, long double y);
     ~ZoomList();
 };
 

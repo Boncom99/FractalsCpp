@@ -24,6 +24,7 @@ namespace JosepBoncompte
 
         ofstream file;
         file.open(fileName, ios::out | ios::binary);
+        //file.open("images2/" + fileName, ios::out | ios::binary);
         if (!file)
         {
             cout << "cant open file" << endl;

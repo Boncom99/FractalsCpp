@@ -31,7 +31,7 @@ namespace JosepBoncompte
         bool m_bGotFirstRange{false};
 
     private:
-        void calculateIteration();
+        void calculateIteration(int min, int max);
         void calculateTotalIter();
         void calculateRangeTotals();
         void drawFractal();
@@ -40,7 +40,8 @@ namespace JosepBoncompte
 
     public:
         FractalCreator(int w, int h);
-        void run(string name);
+        FractalCreator();
+        void run(string name, int cores);
         void addRange(double rangeEnd, const RGB &rgb);
         void addZoom(const Zoom &zoom);
         ~FractalCreator();
